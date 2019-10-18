@@ -23,8 +23,7 @@ namespace AudioKitCore
     
     void SamplerVoice::start(unsigned evt, unsigned noteNum, float freqHz, float volume)
     {
-        //SamplerVoiceParams *timbreParams = (SamplerVoiceParams*)pTimbreParams;
-        //SamplerModParameters *modParams = (SamplerModParameters*)pModParams;
+        if (!pSampleBuffer) return;
 
         SampleBuffer* pBuf = pSampleBuffer;
         oscillator.fIndex = pSampleBuffer->fStart;
@@ -46,8 +45,7 @@ namespace AudioKitCore
     
     void SamplerVoice::restart(unsigned evt, float volume)
     {
-        //SamplerVoiceParams *timbreParams = (SamplerVoiceParams*)pTimbreParams;
-        //SamplerModParameters *modParams = (SamplerModParameters*)pModParams;
+        if (!pSampleBuffer) return;
 
         pNewSampleBuffer = pSampleBuffer;
         ampEG.updateParams();
@@ -61,8 +59,7 @@ namespace AudioKitCore
     
     void SamplerVoice::restart(unsigned evt, unsigned noteNum, float freqHz, float volume)
     {
-        //SamplerVoiceParams *timbreParams = (SamplerVoiceParams*)pTimbreParams;
-        //SamplerModParameters *modParams = (SamplerModParameters*)pModParams;
+        if (!pSampleBuffer) return;
 
         pNewSampleBuffer = pSampleBuffer;
         ampEG.updateParams();

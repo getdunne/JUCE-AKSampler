@@ -138,6 +138,8 @@ namespace AudioKitCore {
     
     KeyMappedSampleBuffer* Sampler::lookupSample(unsigned noteNumber, unsigned velocity)
     {
+        if (!keyMapValid) return nullptr;
+
         // common case: only one sample mapped to this note - return it immediately
         if (keyMap[noteNumber].size() == 1) return keyMap[noteNumber].front();
         
