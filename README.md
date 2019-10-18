@@ -1,5 +1,5 @@
 # JUCE-AKSampler
-This example illustrates using the [JUCE framework](http://juce.com) to wrap the *AKSampler* instrument from *AudioKitCore* for deployment as a desktop app and plug-in.
+This example illustrates using the [JUCE framework](http://juce.com) to wrap the *AKSampler* instrument from *AudioKitCore* for deployment as a desktop app and plug-in. It's essentially a desktop version of the [AudioKit Sampler Demo](https://github.com/AudioKit/SamplerDemo) for iOS and macOS.
 
 To compile this, you will need to obtain your own copy of the JUCE framework. If you want to build VST or VST3 plug-ins, you will also need a copy of the appropriate SDK from [Steinberg](https://www.steinberg.net/en/company/developers.html) ("VST" is a trademark of Steinberg Media Technologies GmbH). To distribute VST/VST3 plug-ins you must obtain a license from Steinberg.
 
@@ -11,6 +11,8 @@ The original code published here is offered under the terms of the [MIT License]
 The AudioKit *AKSampler* C++ class is documented at https://github.com/AudioKit/AudioKit/blob/master/docs/AKSampler.md.
 
 This implementation makes use of *a simplified form of the* "SFZ" metafile format, which is described in detail at https://github.com/AudioKit/AudioKit/blob/master/docs/PreparingSampleSets.md. **THIS IS NOT A FULL SFZ PLAYER**. If that's what you're looking for, check out Steve Folta's impressive [SFZero project here on GitHub](http://stevefolta.github.io/SFZero/).
+
+You can get a basic set of four pre-built SFZs and samples from the original AudioKit Sampler Demo repo at https://github.com/AudioKit/SamplerDemo/tree/master/Sounds. We strongly recommend that you test the JUCE AKSampler with these sample-sets before attempting to create your own.
 
 When instantiated as a plug-in in a typical DAW or other host program, the JUCE AKSampler GUI looks like this:
 
