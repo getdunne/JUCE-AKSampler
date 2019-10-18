@@ -18,6 +18,8 @@ When instantiated as a plug-in in a typical DAW or other host program, the JUCE 
 
 ![](juce-aksampler.png)
 
+The stand-alone executable looks similar, but has an "Options" button at the top. The first time you run the program, click this to select your Audio interface and MIDI input device. (Your selections should be remembered for subsequent runs.)
+
 Click the "Folder..." button to select the folder containing your .SFZ files, then select a specific file from the drop-down menu (combo box) to the right of the button to load the samples. Once they are loaded, you should be able to play with up to 64 voices of polyphony.
 
 *AKSampler* offers a single LFO, which in this implementation is hard-wired to apply vibrato. Use your MIDI keyboard's mod wheel to control this. You can also use your controller's pitch bend control to slide note pitch up or down up to 2 semitones.
