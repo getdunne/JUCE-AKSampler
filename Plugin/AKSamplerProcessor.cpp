@@ -8,6 +8,7 @@
 #include "AKSamplerProcessor.h"
 #include "AKSamplerEditor.h"
 #include <math.h>
+#include "wavpack.h"
 
 AKSamplerProcessor::AKSamplerProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -307,6 +308,51 @@ bool AKSamplerProcessor::loadSampleFile(AKSampleFileDescriptor& sfd)
     return true;
 }
 
+bool AKSamplerProcessor::loadCompressedSampleFile(AKSampleFileDescriptor& sfd)
+{
+    char errMsg[100];
+    WavpackContext* wpc = WavpackOpenFileInput(sfd.path, errMsg, OPEN_2CH_MAX, 0);
+    if (wpc == 0)
+    {
+        DBG("Wavpack error loading " << sfd.path << ": " << errMsg);
+        //char msg[1000];
+        //sprintf(msg, "Wavpack error loading %s: %s\n", sfd.path, errMsg);
+        //MessageBox(0, msg, "Wavpack error", MB_OK);
+        return false;
+    }
+
+    AKSampleDataDescriptor sdd;
+    sdd.sd = sfd.sd;
+    sdd.sampleRateHz = (float)WavpackGetSampleRate(wpc);
+    sdd.nChannels = WavpackGetReducedChannels(wpc);
+    sdd.nSamples = WavpackGetNumSamples(wpc);
+    sdd.bInterleaved = sdd.nChannels > 1;
+    sdd.pData = new float[sdd.nChannels * sdd.nSamples];
+
+    // There are cases where loop end may be off by one
+    if (sdd.sd.fLoopEnd > (float)(sdd.nSamples - 1))
+        sdd.sd.fLoopEnd = (float)(sdd.nSamples - 1);
+
+    int mode = WavpackGetMode(wpc);
+    WavpackUnpackSamples(wpc, (int32_t*)sdd.pData, sdd.nSamples);
+    if ((mode & MODE_FLOAT) == 0)
+    {
+        // convert samples to floating-point
+        int bps = WavpackGetBitsPerSample(wpc);
+        float scale = 1.0f / (1 << (bps - 1));
+        float* pf = sdd.pData;
+        int32_t* pi = (int32_t*)pf;
+        for (int i = 0; i < (sdd.nSamples * sdd.nChannels); i++)
+            *pf++ = scale * *pi++;
+    }
+    WavpackCloseFile(wpc);
+
+    sampler1.loadSampleData(sdd);
+    delete[] sdd.pData;
+    return true;
+}
+
+
 static bool hasPrefix(char* string, const char* prefix)
 {
     return strncmp(string, prefix, strlen(prefix)) == 0;
@@ -441,7 +487,17 @@ bool AKSamplerProcessor::loadSfz(String folderPath, String sfzFileName)
             sfd.sd.max_vel = hivel;
 
             File f(buf);
-            if (f.existsAsFile()) loadSampleFile(sfd);
+            if (f.existsAsFile())
+            {
+                loadSampleFile(sfd);
+            }
+            else
+            {
+                char* px = strrchr(sampleFileName, '.');
+                strcpy(px, ".wv");
+                sprintf(buf, "%s%s", File::addTrailingSeparator(folderPath).toRawUTF8(), sampleFileName);
+                loadCompressedSampleFile(sfd);
+            }
         }
     }
     fclose(pfile);

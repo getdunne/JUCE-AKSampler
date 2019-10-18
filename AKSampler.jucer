@@ -7,7 +7,8 @@
               buildAAX="0" enableIAA="0" pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn"
               pluginCode="AKjs" pluginChannelConfigs="{0,2}" id="IJRN8W" projectLineFeed="&#10;"
               reportAppUsage="0" displaySplashScreen="0" pluginManufacturerCode="AKit"
-              headerPath="../../Common&#10;../../Sampler&#10;" bundleIdentifier="io.audiokit.AKSampler">
+              headerPath="../../Common&#10;../../Sampler&#10;../../Wavpack&#10;"
+              bundleIdentifier="io.audiokit.AKSampler">
   <MAINGROUP id="hp9nrb" name="AKSampler">
     <GROUP id="{9F72E1AD-4441-01B4-6A4D-F5017D0CB212}" name="Common">
       <FILE id="VIvkYo" name="ADSREnvelope.cpp" compile="1" resource="0"
@@ -75,6 +76,40 @@
       <FILE id="ZMxDwG" name="PatchParams.cpp" compile="1" resource="0" file="Plugin/PatchParams.cpp"/>
       <FILE id="DusVph" name="PatchParams.h" compile="0" resource="0" file="Plugin/PatchParams.h"/>
     </GROUP>
+    <GROUP id="{659EA568-1490-8217-DEE9-C83D6DF6DAB2}" name="Wavpack">
+      <FILE id="mzybnr" name="common_utils.c" compile="1" resource="0" file="Wavpack/common_utils.c"/>
+      <FILE id="bJXxrC" name="decorr_tables.h" compile="0" resource="0" file="Wavpack/decorr_tables.h"/>
+      <FILE id="VwOmWk" name="decorr_utils.c" compile="1" resource="0" file="Wavpack/decorr_utils.c"/>
+      <FILE id="wvGyDD" name="entropy_utils.c" compile="1" resource="0" file="Wavpack/entropy_utils.c"/>
+      <FILE id="AIJEGz" name="extra1.c" compile="1" resource="0" file="Wavpack/extra1.c"/>
+      <FILE id="CzsJVm" name="extra2.c" compile="1" resource="0" file="Wavpack/extra2.c"/>
+      <FILE id="D7yOWC" name="open_filename.c" compile="1" resource="0" file="Wavpack/open_filename.c"/>
+      <FILE id="bRVFE3" name="open_legacy.c" compile="1" resource="0" file="Wavpack/open_legacy.c"/>
+      <FILE id="b86a6Q" name="open_raw.c" compile="1" resource="0" file="Wavpack/open_raw.c"/>
+      <FILE id="LuC2UW" name="open_utils.c" compile="1" resource="0" file="Wavpack/open_utils.c"/>
+      <FILE id="C0Tnze" name="pack.c" compile="1" resource="0" file="Wavpack/pack.c"/>
+      <FILE id="u0Ya2F" name="pack_dns.c" compile="1" resource="0" file="Wavpack/pack_dns.c"/>
+      <FILE id="rL5JO7" name="pack_dsd.c" compile="1" resource="0" file="Wavpack/pack_dsd.c"/>
+      <FILE id="esuOtI" name="pack_floats.c" compile="1" resource="0" file="Wavpack/pack_floats.c"/>
+      <FILE id="k6gkon" name="pack_utils.c" compile="1" resource="0" file="Wavpack/pack_utils.c"/>
+      <FILE id="z52IJ2" name="read_words.c" compile="1" resource="0" file="Wavpack/read_words.c"/>
+      <FILE id="k7yhCL" name="tag_utils.c" compile="1" resource="0" file="Wavpack/tag_utils.c"/>
+      <FILE id="rPQ1PA" name="tags.c" compile="1" resource="0" file="Wavpack/tags.c"/>
+      <FILE id="CMgv1N" name="unpack.c" compile="1" resource="0" file="Wavpack/unpack.c"/>
+      <FILE id="Sv8Hgv" name="unpack_dsd.c" compile="1" resource="0" file="Wavpack/unpack_dsd.c"/>
+      <FILE id="geBRm4" name="unpack_floats.c" compile="1" resource="0" file="Wavpack/unpack_floats.c"/>
+      <FILE id="lQRztw" name="unpack_seek.c" compile="1" resource="0" file="Wavpack/unpack_seek.c"/>
+      <FILE id="aDPZt0" name="unpack_utils.c" compile="1" resource="0" file="Wavpack/unpack_utils.c"/>
+      <FILE id="mOEJBe" name="unpack3.c" compile="1" resource="0" file="Wavpack/unpack3.c"/>
+      <FILE id="Y8yb5L" name="unpack3.h" compile="0" resource="0" file="Wavpack/unpack3.h"/>
+      <FILE id="xqVFEJ" name="unpack3_open.c" compile="1" resource="0" file="Wavpack/unpack3_open.c"/>
+      <FILE id="eb5Ebk" name="unpack3_seek.c" compile="1" resource="0" file="Wavpack/unpack3_seek.c"/>
+      <FILE id="zOLFA1" name="wavpack.h" compile="0" resource="0" file="Wavpack/wavpack.h"/>
+      <FILE id="F4mD9a" name="wavpack_local.h" compile="0" resource="0" file="Wavpack/wavpack_local.h"/>
+      <FILE id="zGsdMH" name="wavpack_version.h" compile="0" resource="0"
+            file="Wavpack/wavpack_version.h"/>
+      <FILE id="RSNWug" name="write_words.c" compile="1" resource="0" file="Wavpack/write_words.c"/>
+    </GROUP>
   </MAINGROUP>
   <LIVE_SETTINGS>
     <WINDOWS/>
@@ -82,8 +117,7 @@
   </LIVE_SETTINGS>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" aaxFolder="~/SDKs/AAX_SDK_2p3p0"
-               vstLegacyFolder="~/SDKs/VST_SDK/VST2_SDK"
-               vst3Folder="~/SDKs/VST_SDK/VST3_SDK">
+               vstLegacyFolder="~/SDKs/VST_SDK/VST2_SDK" vst3Folder="~/SDKs/VST_SDK/VST3_SDK">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug"/>
         <CONFIGURATION isDebug="0" name="Release"/>

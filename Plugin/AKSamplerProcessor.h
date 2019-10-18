@@ -47,6 +47,7 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
     bool loadSampleFile(AKSampleFileDescriptor& sfd);
+    bool loadCompressedSampleFile(AKSampleFileDescriptor& sfd);
     bool loadSfz(String folderPath, String sfzFileName);
 
 public:
