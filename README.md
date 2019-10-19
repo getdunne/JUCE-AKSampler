@@ -20,7 +20,7 @@ When instantiated as a plug-in in a typical DAW or other host program, the JUCE 
 
 ![](juce-aksampler.png)
 
-The stand-alone executable looks similar, but has an "Options" button at the top. The first time you run the program, click this to select your Audio interface and MIDI input device. (Your selections should be remembered for subsequent runs.)
+(The look of the GUI is a result of code shared from my [SARAH synthesizer](https://github.com/getdunne/SARAH).) The stand-alone executable looks similar, but has an "Options" button at the top. The first time you run the program, click this to select your Audio interface and MIDI input device. (Your selections should be remembered for subsequent runs.)
 
 Click the "Folder..." button to select the folder containing your .SFZ files, then select a specific file from the drop-down menu (combo box) to the right of the button to load the samples. Once they are loaded, you should be able to play with up to 64 voices of polyphony.
 
