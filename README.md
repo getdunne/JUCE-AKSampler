@@ -7,6 +7,8 @@ Note the JUCE framework is dual-licensed. A commercial license is required if yo
 
 The original code published here is offered under the terms of the [MIT License](https://opensource.org/licenses/MIT) (as is the rest of the [AudioKit framework](https://github.com/AudioKit/AudioKit)). This grants you even greater freedom than the GPL3, but note this *does not extend to cover the JUCE framework*, which is subject to its own license terms.
 
+David Bryant's excellent [WavPack audio compression library](https://github.com/dbry/WavPack) is used in this example, to allow users to load the sample sets linked below, from the original AKSampler Demo repo. It's very easy to remove, however, if (as will usually be the case) you only need to use samples in conventional format like WAV, AIF, etc. which are already supported by JUCE.
+
 ## Using the JUCE AKSampler
 The AudioKit *AKSampler* C++ class is documented at https://github.com/AudioKit/AudioKit/blob/master/docs/AKSampler.md.
 
