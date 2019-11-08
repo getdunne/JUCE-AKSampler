@@ -1,7 +1,7 @@
 # JUCE-AKSampler
 ![](juce-aksampler.png)
 
-This example illustrates using the [JUCE framework](http://juce.com) to wrap the *AKSampler* instrument from *AudioKitCore* for deployment as a desktop app and plug-in. It's essentially a desktop version of the [AudioKit Sampler Demo](https://github.com/AudioKit/SamplerDemo) for iOS and macOS.
+This example illustrates using the [JUCE framework](http://juce.com) to wrap the *AKSampler* instrument from *AudioKitCore* for deployment as a desktop app and plug-in. It's essentially a desktop version of the [AudioKit Sampler Demo](https://github.com/AudioKit/SamplerDemo) which can be compiled as a stand-alone app or plug-in for any platform JUCE supports.
 
 To compile this, you will need to obtain your own copy of the JUCE framework. If you want to build VST or VST3 plug-ins, you will also need a copy of the appropriate SDK from [Steinberg](https://www.steinberg.net/en/company/developers.html) ("VST" is a trademark of Steinberg Media Technologies GmbH). To distribute VST/VST3 plug-ins you must obtain a license from Steinberg.
 
